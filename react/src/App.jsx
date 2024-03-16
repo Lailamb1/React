@@ -5,7 +5,8 @@ import HomeComponent from './components/HomeComponent';
 import ContactComponent from './components/ContactComponent';
 import ProductsComponent from './components/products/ProductsComponent';
 import Navbar from './components/navbar/Navbar';
-import SingleProduct from './components/SingleProduct';
+import ProductDetails from './components/ProductsDetail';
+import Product from './components/SingleProduct';
 
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
     <Routes>
       <Route exact path = "/" element={<HomeComponent/>}/>
       <Route exact path = "/products" element={<ProductsComponent/>}/>
-      <Route exact path="/product/:productId" element={<SingleProduct />} />
+      <Route exact path = "/products" element={<Product/>}/>
+      <Route exact path="/product/:id" element={<ProductDetails />} />
       <Route exact path = "/contact" element={<ContactComponent/>}/>
     </Routes>
   </BrowserRouter>

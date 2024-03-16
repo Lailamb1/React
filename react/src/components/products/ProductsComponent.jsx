@@ -1,11 +1,11 @@
-import { useNavigate } from 'react-router-dom';
 import { getProducts } from '../../asyncMock';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import "./ProductsComponent.css";
 
 
+
 export default function ProductsComponent() {
-const navigate = useNavigate();
 
 const [products, setProducts] = useState([]);
 
@@ -14,26 +14,23 @@ useEffect(() => {
     console.log('Recibiendo datos!!!');
 }, []);
 
-const handleClick = (id) => {
-    navigate(`/product/${id}`);
-};
 
 return (
     <>
     <div className="contenedor-cursos">
         <h1>Products Component</h1>
         <section className="cursos">
-        {products.map((product) => (
+        {products.map((products) => (
             <article
-            key={product.id}
+            key={products.id}
             className="curso"
             >
-            <h4>{product.title}</h4>
-            <img className="articulo-imagen" src={product.image} alt={product.title} />
-            <p>Price {product.price}</p>
-            <button className="ver-detalles" onClick={() => handleClick(product.id)}>
+            <h4>{products.title}</h4>
+            <img className="articulo-imagen" src={products.image} alt={products.title} />
+            <p>Price {products.price}</p>
+            <Link to={`/product/${products.id}`} className="ver-detalles">
                 Ver detalles
-            </button>
+            </Link>
             </article>
         ))}
         </section>

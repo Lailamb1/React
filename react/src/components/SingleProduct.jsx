@@ -1,26 +1,21 @@
-import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { getProduct } from '../asyncMock';
 
-export default function SingleProduct() {
-const { prodId } = useParams();
+import { NavLink } from "react-router-dom";
 
-const [product, setProduct] = useState({});
+const Product = () => {
+    return <nav>
+        <ul>
+            <li>
+                <NavLink to = "/productos/1">Product 1</NavLink>
+            </li>
+            <li>
+                <NavLink to = "/productos/2">Product 2</NavLink>
+            </li>
+            <li>
+                <NavLink to = "/productos/3">Product 3</NavLink>
+            </li>
 
-useEffect(() => {
-    setProduct(getProduct(prodId));
-}, [prodId]);
-
-return (
-    <>
-    <div>
-        <h1>Single Prod {prodId}</h1>
-        <h3>Nombre: {product.title}</h3>
-        <img src={product.image} alt={product.title} />
-        <p>{product.description}</p>
-        <p>{product.category}</p>
-        <p>Precio $ {product.price}</p>
-    </div>
-    </>
-);
+        </ul>
+    </nav>
 }
+
+export default Product
