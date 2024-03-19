@@ -18,7 +18,7 @@ useEffect(() => {
 return (
     <>
     <div className="contenedor-cursos">
-        <h1>Products Component</h1>
+        <h1>Productos</h1>
         <section className="cursos">
         {products.map((products) => (
             <article
