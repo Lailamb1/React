@@ -1,3 +1,4 @@
+import { useCart } from '../Cart/CartContext';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getProduct } from '../../asyncMock';
@@ -6,31 +7,12 @@ import './ProductsDetail.css';
 const ProductDetail = () => {
     const { id } = useParams();
     const product = getProduct(id);
+    const { addToCart } = useCart();
 
-    const [count, setCount] = useState(1);
-    const [cart, setCart] = useState([]);
+    const [quantity, setQuantity] = useState(1);
 
-    const increment = () => {
-        if (count < product.stock) {
-            setCount(count + 1);
-        }
-    };
-
-    const decrement = () => {
-        if (count > 1) {
-            setCount(count - 1);
-        }
-    };
-
-    const addToCart = () => {
-        if (count <= product.stock) {
-            const newItem = { ...product, quantity: count };
-            setCart([...cart, newItem]);
-            setCount(1);
-            alert('Producto agregado al carrito');
-        } else {
-            alert('No hay suficiente stock disponible');
-        }
+    const handleAddToCart = () => {
+        addToCart(product, quantity);
     };
 
     return (
@@ -42,12 +24,12 @@ const ProductDetail = () => {
             <p>Precio: {product.price}</p>
             <p>Cantidad disponible: {product.stock}</p>
             <div className="quantity">
-                <button onClick={decrement}>-</button>
-                <span>{count}</span>
-                <button onClick={increment}>+</button>
+                <button onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}>-</button>
+                <span>{quantity}</span>
+                <button onClick={() => setQuantity(quantity < product.stock ? quantity + 1 : quantity)}>+</button>
             </div>
             <div className="agregar-carrito">
-                <button onClick={addToCart}>Add to Cart</button>
+            <button onClick={handleAddToCart}>Agregar al carrito</button>
             </div>
         </div>
     );
