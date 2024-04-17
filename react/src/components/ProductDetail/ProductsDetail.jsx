@@ -17,12 +17,10 @@ const ProductDetail = () => {
 
     return (
         <div className="product-detail">
-            <h1>Producto {product.id}</h1>
-            <h3>{product.title}</h3>
+            <h1>{product.title}</h1>
             <img src={product.image} alt={product.title} />
-            <p>{product.description}</p>
-            <p>Precio: {product.price}</p>
-            <p>Cantidad disponible: {product.stock}</p>
+            <p><strong>Precio:</strong>{product.price}</p>
+            <p><strong>Cantidad disponible:</strong> {product.stock}</p>
             <div className="quantity">
                 <button onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}>-</button>
                 <span>{quantity}</span>

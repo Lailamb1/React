@@ -1,7 +1,7 @@
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-{/*import HomeComponent from './components/HomeComponent';*/}
+import HomeComponent from './components/HomeComponent'
 {/*import ContactComponent from './components/ContactComponent';*/}
 import ProductsComponent from './components/products/ProductsComponent';
 import Navbar from './components/navbar/Navbar';
@@ -15,7 +15,7 @@ function App() {
   <BrowserRouter>
   <Navbar/>
     <Routes>
-      {/*<Route exact path = "/" element={<HomeComponent/>}/>*/}
+      <Route exact path = "/" element={<HomeComponent/>}/>
       <Route exact path = "/products" element={<ProductsComponent/>}/>
       <Route exact path = "/products" element={<Product/>}/>
       <Route exact path="/product/:id" element={<ProductDetails />} />

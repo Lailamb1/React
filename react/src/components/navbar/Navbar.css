@@ -1,0 +1,75 @@
+/* Estilos para el Navbar */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+.navbar-brand a {
+    color: #000;
+    text-decoration: none;
+}
+
+.navbar-menu {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.navbar-icon {
+    font-size: 1.5rem;
+    padding-right: 2rem;
+}
+
+.navbar-toggle {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-content a {
+    color: #000;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.navbar-toggle:hover .dropdown-content {
+    display: block;
+}
+
+.cart-icon {
+    color: #fff;
+    text-decoration: none;
+    margin-left: auto;
+    padding-right: 2rem;
+}
+
